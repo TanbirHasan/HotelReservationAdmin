@@ -15,7 +15,7 @@ const Datatable = ({columns}) => {
   console.log(path)
 
 
-   const {data,loading,error} = usefetch("http://localhost:7000/api/users")
+   const {data,loading,error} = usefetch(`http://localhost:7000/api/${path}`)
 
    useEffect(() => {
     setList(data)
@@ -34,7 +34,7 @@ const Datatable = ({columns}) => {
     setList(list.filter((item) => item._id !== id));
   };
 
-  const actionColumn = [
+   const actionColumn = [
     {
       field: "action",
       headerName: "Action",
@@ -59,8 +59,8 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        {path}
+        <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
       </div>
@@ -71,7 +71,7 @@ const Datatable = ({columns}) => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
-        getRowId={row => row._id}
+        getRowId={(row) => row._id}
       />
     </div>
   );
