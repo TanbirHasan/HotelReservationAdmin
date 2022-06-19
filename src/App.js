@@ -11,6 +11,8 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
+import NewHotel from "./pages/newHotel/NewHotel";
+import NewRoom from "./pages/newRoom/NewRoom";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -34,9 +36,9 @@ function App() {
             <Route
               index
               element={
-                <ProtectedRoute>
+             
                   <Home />
-                </ProtectedRoute>
+             
               }
             />
             <Route path="users">
@@ -86,7 +88,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    {/* <NewHotel /> */}
+                    { <NewHotel /> }
                   </ProtectedRoute>
                 }
               />
@@ -112,7 +114,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    {/* <NewRoom /> */}
+                    { <NewRoom />}
                   </ProtectedRoute>
                 }
               />
